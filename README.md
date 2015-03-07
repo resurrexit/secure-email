@@ -550,11 +550,28 @@ Disadvantages:
 
 [i2pbote.i2p.us](http://i2pbote.i2p.us) (or [i2pbote.i2p](http://i2pbote.i2p) if using i2p)
 
-Bote mail (aka [IMail](https://en.wikipedia.org/wiki/IMail)) is an email-like communication protocol that uses the anonymizing network I2p for transport. Bote mail stores messages in a global distribute hash table for up to 100 days, during which time the client has an opportunity to download and store the message.
+Bote mail (aka [IMail](https://en.wikipedia.org/wiki/IMail)) is an email-like communication protocol that uses the anonymizing network i2p for transport. Bote mail stores messages in a global distributed hash table for up to 100 days, during which time the client has an opportunity to download and store the message.
+
 
 **Keys**: Bote mail uses public-key based addresses. You can create as many identities as you want, each identity corresponding to a ECDSA or NTRU key-pair.
 
+Bote is fully decentralised, forming a P2P network on top of i2p. All nodes are created equal, with the amount of disk space used user-configurable.
+
+Emails are first broken up into packets, encrypting with recipient public key. The packets are then stored in the distributed hash table mentioned above redundantly.
+
 **Application**: Users interact with the user interface through a webmail interface, although the client is running locally.
+
+Advantages:
+
+* Automatic end-to-end encryption
+* Decentralised, so no email server can link two identities as communicating.
+* Length of delay per relay hop and whether or not to use relays can be configured.
+
+Disadvantages:
+
+* Uses email destination keys. Destination keys are base-64 strings containing a public key and a signature verification key. This is long and can be inconvenient to give out.
+* Many features not yet implemented (remember: alpha software). For example, bote mail cannot send messages outside of the ecosystem.
+* Requires i2p. The two things have to be installed separately. Bote mail is installed as a plugin.
 
 * Written in: Java
 * License: GPLv3

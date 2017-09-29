@@ -10,6 +10,7 @@ Contents:
    1. [Secure Authentication](#secure-authentication)
 1. [Web Mail](#web-mail)
    1. [Lavaboom](#lavaboom)
+   1. [Mailfence](#mailfence)
    1. [Mega](#mega)
    1. [PrivateSky](#privatesky)
    1. [Scramble](#scramble)
@@ -20,7 +21,7 @@ Contents:
    2. [End-to-End](#end-to-end)
 1. [Mail Clients](#mail-clients)
    1. [Bitmail](#bitmail)
-   1. [M](#m)
+   1. [Mynigma](#mynigma)
    1. [Mailpile](#mailpile)
    1. [Parley](#parley)
 1. [Self-Hosted Email](#self-hosted-email)
@@ -173,6 +174,21 @@ Lavaboom's name is a tribute to the shuttered Lavabit service, although Lavaboom
 * Source code: https://github.com/lavab
 * License: MIT
 
+<a name="mailfence"></a>Mailfence
+-----------------------------------------------------------
+
+[mailfence.com](https://www.mailfence.com)
+
+Mailfence is a web-based email provider from Belgium that provides OpenPGP based end-to-end en(de)cryption and digital signing in the client-browser and uses open-source implementation ([openpgpjs.org](https://openpgpjs.org/) library) of RFC-4880.
+
+**Key storage and an integrated key-store:** Private keys are generated in the client-browser, encrypted with the user's passphrase, and then stored on the server. The server never sees the user's passphrase (encrypted via AES256 and iterated, salted string-to-key specifier). An integrated key-store for each account (without requiring any third party plugin/add-on) is also provided - where users can manage their generated (or externally imported) key-pairs and can export, modify, revoke (with/without revocation certificate), delete, publish/import PGP public keys from public key servers. This gives users full control over their key management and freedom to use as many PGP key-pairs as they want.
+
+**Application:** The service uses open standards and does not restrict users to communicate securely only with-in their platform, and allows their users to either send plain-text, plain-text and signed, signed and end-to-end encrypted emails to any external PGP compatible provider. They also provide a rich collaborative email-suite along with POP/IMAP support.
+
+**Market positioning** The project came into existence after snowden revelations and holds a strong online privacy-oriented philosophy. The service donates 15% of their annual Pro-plan revenue to [Electronic Frontier Foundation](https://www.eff.org/) (EFF) and [Electronic Digital Rights](https://edri.org/) (EDRi) to support their fight for online privacy and digital freedom.
+
+* License: Proprietary
+
 <a name="mega"></a>Mega
 -----------------------------------------------------------
 
@@ -323,7 +339,7 @@ There are also plans to include a Bitmail MUA extension.
 
 Note: I am unclear which of the previous features are planned and which are currently working.
 
-<a name="m"></a>M
+<a name="mynigma"></a>Mynigma
 -----------------------------------------------------------
 
 [mynigma.org](https://mynigma.org)
@@ -338,7 +354,7 @@ M is a suite of native email clients with built-in end-to-end encryption.
 
 **Encryption format:** Implements custom Open Source encryption format. Provable CCA security. Removes SHA1 and other broken algorithms. Encrypts subject lines. Signing of other header info prevents replay attacks and surreptitious forwarding.
 
-**Limitations:** Requires download. No webmail access. PGP and S/MIME support in development.
+**Limitations:** Requires download. No webmail access. PGP and S/MIME support in development. Other MUAs need to parse the X-Myn-PK header.
 
 * Contact: info@mynigma.org
 * Written in: Objective-C, C#, Java
@@ -385,7 +401,7 @@ Parley is a desktop mail client with a UI written using HTML5 and Javascript, wi
 
 * Written in: Python, Javascript
 * Source code: https://github.com/blackchair/parley
-* License: BSD
+* License: <span title="Simplified BSD License (2-clause)">BSD</span>
 * Platforms: Windows, Mac, Linux (with Android and iOS planned).
 
 <a name="self-hosted-email"></a>Self-Hosted Email
@@ -416,6 +432,8 @@ The Dark Mail Alliance has said they want to support self-hosting for the server
 [freedomboxfoundation.org](https://freedomboxfoundation.org)
 
 From its early conception, part of FreedomBox was "email and telecommunications that protects privacy and resists eavesdropping". Email, however, is not currently being worked on as part of FreedomBox. (as far as I can tell).
+
+* License: AGPLv3
 
 <a name="self-hosted-mailpile"></a>Mailpile
 -----------------------------------------------------------
@@ -568,6 +586,10 @@ Disadvantages:
 * unsolved scaling issues: all messages are broadcast to everyone
 * because there is no forward secrecy, it is especially problematic that anyone can grab an encrypted copy of any message in the system. This means if the private key is ever compromised, then all the past messages can be decrypted easily by anyone using the system.
 * relies on proof of work for spam prevention, which is probably not actually that preventative (spammers often steal CPU anyway).
+
+[PyBitmessage](https://github.com/Bitmessage/PyBitmessage):
+
+* License: MIT
 
 <a name="bote-mail"></a>Bote mail
 -----------------------------------------------------------
@@ -725,7 +747,7 @@ Ultimately, Pond's unique design makes it a very strong candidate for incorporat
 
 * Written in: Go
 * Source code: https://github.com/agl/pond
-* License: BSD
+* License: <span title="Revised BSD License (3-clause)">BSD</span>
 * Platforms: anything you can compile Go on (for command line interface) or anything you can compile Go + Gtk (for GUI interface).
 
 <a name="retroshare"></a>RetroShare
@@ -788,7 +810,8 @@ ProtonMail is a web-based mail provider from Switzerland using client-side encry
 
 The developers promote their service as being secure because of its location in Switzerland and therefore user data are protected by strict Swiss privacy laws.
 
-* License: [Open Source](https://protonmail.com/blog/protonmail-secure-email-open-source/) on [Github](https://github.com/ProtonMail)
+* License: MIT [(Open Source)](https://protonmail.com/blog/protonmail-secure-email-open-source/)
+* Source Code: on [Github](https://github.com/ProtonMail)
 
 <a name="shazzlemail"></a>ShazzleMail
 -----------------------------------------------------------
@@ -810,7 +833,7 @@ Tutanota is an open source installable webclient and includes apps for Android, 
 **Keys**: Private keys are generated in the browser app, encrypted with the user's password, and then stored on the server. The server never sees the user's password. Key validation requires trusting the Tutanota server.
 
 * Platforms: Web Browser, Android, iOS
-* License: Open Source (GPLv3)
+* License: GPLv3
 
 <a name="walnut"></a>Walnut
 -----------------------------------------------------------
@@ -854,4 +877,3 @@ Other links:
 * [Implicit group messaging in peer-to-peer networks](http://sydney.edu.au/engineering/it/~dcutting/papers/tr583.pdf)
 * [P2P email encryption by an identity-based one-way group key agreement protocol](http://www.computer.org/csdl/proceedings/icpads/2014/7615/00/07097879.pdf)
 * [Peer to Peer Support for Distributed Mail Transfer Mechanism](http://www.iis.sinica.edu.tw/~khyang/papers/mime/C04.pdf)
-
